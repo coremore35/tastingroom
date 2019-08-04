@@ -4,6 +4,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
+const boardgameController = require('./controllers/boardgames');
 
 //___________________
 //Port
@@ -22,6 +23,9 @@ const MONGODB_URI =
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true }, () => {
   console.log('connected to mongo database');
 });
+
+app.use(boardgameController);
+app.use('/boardgame', boardgameController);
 
 //___________________
 // Routes
