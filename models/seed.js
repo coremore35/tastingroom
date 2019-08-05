@@ -1,4 +1,4 @@
-const games = [
+const boardgames = [
   {
     name: 'Betrayal at House on the Hill',
     own: true,
@@ -64,7 +64,7 @@ const games = [
       'Perfect game for large groups of players familiar with it. Only detraction is it can take a while to teach and grasp and the pictograms on the cards are not always easy to decipher without the rulebook. Quick turns, no player elimination, and fun theme. Lots of different strategies and ways to win, varies widely game to game.'
   },
   {
-    name: 'Mansinos of Madness: Second Edition',
+    name: 'Mansions of Madness: Second Edition',
     own: false,
     wishList: true,
     myRating: 9,
@@ -73,4 +73,4 @@ const games = [
   }
 ];
 
-module.exports = games;
+module.exports = boardgames;

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>New Boardgame</title>
+  </head>
+  <body>
+    <h1>Add New Boardgame</h1>
+
+    <a href="/boardgames"><button>Back</button></a>
+
+    <form action="/boardgame" method="PUT">
+      <label for="name">Name: </label>
+      <input type="text" name="name" />
+
+      <label for="wishList">Wish List: </label>
+      <input type="checkbox" name="wishList" />
+
+      <label for="myRating">My Rating: </label>
+      <input type="checkbox" name="myRating" />
+
+      <label for="gamePlayNotes">Game Play Notes: </label>
+      <input type="textbox" name="gamePlayNotes" />
+    </form>
+  </body>
+</html>
