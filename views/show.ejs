@@ -5,8 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
+    <script src="https://kit.fontawesome.com/7c4baf1a72.js"></script>
   </head>
   <body>
     <h1>Show Page</h1>
+    <a href="/boardgames"><button>BACK</button></a>
+
+    <h2><%= game.name %></h2>
+
+    <section>
+      <h3>OWN:</h3>
+      <% if (game.own === true) { %>
+      <i class="fas fa-check-circle" style="color:green"></i>
+      <% } else { %>
+      <i class="fas fa-ban"></i>
+      <% } %>
+
+      <h3>WISHLIST:</h3>
+      <% if (game.wishList === true) { %>
+      <i class="fas fa-heart" style="color:red"></i>
+      <% } else { %>
+      <i class="fas fa-ban" style="color:red"></i>
+      <% } %>
+    </section>
   </body>
 </html>

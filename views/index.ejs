@@ -14,7 +14,8 @@
     <div class="games">
       <% games.forEach( function (game) { %>
       <div class="card">
-        <h5><%= game.name %></h5>
+        <h5><a href="/boardgames/<%=game.id%>"><%= game.name %></a></h5>
+        <img />
       </div>
       <% }); %>
     </div>

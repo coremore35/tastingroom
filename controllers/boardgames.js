@@ -7,7 +7,7 @@ const Boardgame = require('../models/boardgames');
 // =====================================
 
 //INDEX PAGE
-router.get('/', (req, res) => {
+router.get('/boardgames', (req, res) => {
   Boardgame.find({}, (err, allGames) => {
     // console.log({ games });
     // if (err) {
@@ -19,14 +19,43 @@ router.get('/', (req, res) => {
   });
 });
 
-router.get('/boardgames/new', (req, res) => {
+// NEW PAGE
+router.get('/new', (req, res) => {
   res.render('new.ejs');
 });
 
-router.get('boardgames/:id', (req, res) => {
-  const currentBoardgame = Boardgame[req.params.id];
-  res.render('show.ejs', {
-    boardgame: currentBoardgame
+//SHOW PAGE
+router.get('/:id', (req, res) => {
+  Boardgame.findById(req.params.id, (err, currentGame) => {
+    if (err) {
+      console.log(err);
+    }
+    res.render('show.ejs', {
+      game: currentGame
+    });
+  });
+});
+
+// CREATE (SERVER)
+router.post('/boardgames', (req, res) => {
+  if (req.body.wishList === 'on') {
+    req.body.wishList = true;
+  } else {
+    req.body.wishList = false;
+  }
+
+  if (req.body.own === 'on') {
+    req.body.own = true;
+  } else {
+    req.body.own = false;
+  }
+
+  Boardgame.create(req.body, (error, createdGame) => {
+    if (error) {
+      res.send(error);
+    } else {
+      res.redirect('/boardgames');
+    }
   });
 });
 
