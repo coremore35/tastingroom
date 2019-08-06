@@ -27,6 +27,7 @@ mongoose.connect(MONGODB_URI, { useNewUrlParser: true }, () => {
 });
 
 app.use(methodOverride('_method'));
+app.use(express.static('public'));
 app.use(boardgameController);
 app.use('/boardgames', boardgameController);
 

@@ -5,12 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
-    <script src="https://kit.fontawesome.com/7c4baf1a72.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css"
+    />
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"
+    ></script>
   </head>
   <body>
-    <h1>Show Page</h1>
-
-    <h2><%= game.name %></h2>
+    <nav class="hero">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title is-1">Game Den</h1>
+        </div>
+      </div>
+    </nav>
+    <section class="gameStats">
+      <h2 class="gameName"><%= game.name %></h2>
+    </section>
 
     <aside>
       <a href="/boardgames/<%=game.id; %>/edit"><button>EDIT</button></a>
@@ -19,7 +33,7 @@
       <% if (game.own === true) { %>
       <i class="fas fa-check-circle" style="color:green"></i>
       <% } else { %>
-      <i class="fas fa-ban"></i>
+      <i class="fas fa-ban" style="color:red"></i>
       <% } %>
 
       <h3>WISHLIST:</h3>
@@ -43,5 +57,11 @@
         <input type="submit" value="DELETE GAME" />
       </form>
     </aside>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <script type="text/javascript" src="/app.js"></script>
   </body>
 </html>

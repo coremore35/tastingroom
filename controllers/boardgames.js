@@ -8,11 +8,7 @@ const Boardgame = require('../models/boardgames');
 
 //INDEX PAGE
 router.get('/boardgames', (req, res) => {
-  Boardgame.find({}, (err, allGames) => {
-    // console.log({ games });
-    // if (err) {
-    //   console.log(err);
-    // }
+  Boardgame.find({}, null, { sort: 'name' }, (err, allGames) => {
     res.render('index.ejs', {
       games: allGames
     });
@@ -42,6 +38,7 @@ router.get('/:id', (req, res) => {
     if (err) {
       console.log(err);
     }
+    console.log(currentGame);
     res.render('show.ejs', {
       game: currentGame
     });
@@ -73,7 +70,6 @@ router.post('/boardgames', (req, res) => {
 
 //UPDATE
 router.put('/:id', (req, res) => {
-  console.log('put reached');
   if (req.body.wishList === 'on') {
     req.body.wishList = true;
   } else {

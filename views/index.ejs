@@ -5,9 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css"
+    />
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"
+    ></script>
   </head>
   <body>
-    <h1>Index Page</h1>
+    <nav class="hero is-primary">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title is-1">Game Den</h1>
+          <form>
+            <input
+              type="text"
+              class="gameSearch"
+              placeholder="Search Game by Title"
+            />
+            <input type="submit" name="Submit" class="submit-btn" />
+          </form>
+        </div>
+      </div>
+    </nav>
 
     <a href="/boardgames/new"><button>Add New Game</button></a>
 
