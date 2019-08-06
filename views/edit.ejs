@@ -7,31 +7,39 @@
     <title>New Boardgame</title>
   </head>
   <body>
-    <h1>Add New Boardgame</h1>
+    <h1>EDIT</h1>
 
     <a href="/boardgames"><button>Back</button></a>
 
-    <form action="/boardgames" method="POST">
+    <form
+      action="/boardgames/<%=game.id%>?_method=PUT"
+      method="POST"
+      id="usrForm"
+    >
       <label for="name">Name: </label>
-      <input type="text" name="name" />
+      <input type="text" name="name" value="<%=game.name %>" />
 
       <label for="own">Own: </label>
-      <input type="checkbox" name="own" />
+      <input type="checkbox" name="own" <% if(game.own === true){ %> checked <%
+      } %> />
 
       <label for="wishList">Wish List: </label>
-      <input type="checkbox" name="wishList" />
+      <input type="checkbox" name="wishList" <% if(game.wishList === true){ %>
+      checked <% } %> />
 
       <label for="myRating">My Rating: </label>
       <input
         type="number"
         name="myRating"
-        placeholder="1-10"
+        value="<%= game.myRating || 0%>"
         min="1"
         max="10"
       />
 
       <label for="gamePlayNotes">Game Play Notes: </label>
-      <textarea name="gamePlayNotes"></textarea>
+      <textarea name="gamePlayNotes" form="usrForm">
+<%=game.gamePlayNotes%></textarea
+      >
 
       <input type="submit" name="submit" value="submit" />
     </form>

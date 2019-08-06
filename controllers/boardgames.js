@@ -24,6 +24,18 @@ router.get('/new', (req, res) => {
   res.render('new.ejs');
 });
 
+//EDIT ROUTE
+router.get('/:id/edit', (req, res) => {
+  Boardgame.findById(req.params.id, (err, game) => {
+    if (err) {
+      console.log(err);
+    }
+    res.render('edit.ejs', {
+      game: game
+    });
+  });
+});
+
 //SHOW PAGE
 router.get('/:id', (req, res) => {
   Boardgame.findById(req.params.id, (err, currentGame) => {
@@ -53,6 +65,45 @@ router.post('/boardgames', (req, res) => {
   Boardgame.create(req.body, (error, createdGame) => {
     if (error) {
       res.send(error);
+    } else {
+      res.redirect('/boardgames');
+    }
+  });
+});
+
+//UPDATE
+router.put('/:id', (req, res) => {
+  console.log('put reached');
+  if (req.body.wishList === 'on') {
+    req.body.wishList = true;
+  } else {
+    req.body.wishList = false;
+  }
+
+  if (req.body.own === 'on') {
+    req.body.own = true;
+  } else {
+    req.body.own = false;
+  }
+
+  Boardgame.findByIdAndUpdate(
+    req.params.id,
+    req.body,
+    { new: true },
+    (err, game) => {
+      if (err) {
+        console.log(err);
+      }
+      res.redirect(`/boardgames/${req.params.id}`);
+    }
+  );
+});
+
+//DESTROY
+router.delete('/boardgames/:id', (req, res) => {
+  Boardgame.findByIdAndDelete(req.params.id, (err, deletedGame) => {
+    if (err) {
+      console.log(err);
     } else {
       res.redirect('/boardgames');
     }
