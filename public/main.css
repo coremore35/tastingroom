@@ -58,18 +58,21 @@ body {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
+a {
+  color: white;
+}
 a:link {
-  color: inherit;
+  color: white;
 }
 
 a:hover {
-  color: inherit;
+  color: white;
 }
 
 a:visited {
   color: inherit;
 }
 
-.mainNav {
-  color: white;
+a.mainNav {
+  color: white !important;
 }
