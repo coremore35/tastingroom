@@ -8,19 +8,19 @@ $(() => {
   const handleData = data => {
     // console.log(data);
 
-    const $description = $('<p>').addClass('gameDescription');
+    const $description = $('<p>');
     $description.text(data.games[0].description_preview);
 
-    const $addImg = $('<img>').addClass('gameImg');
+    const $addImg = $('<img>').addClass('is-size-4');
     $addImg.attr('src', `${data.games[0].image_url}`);
 
-    const $numOfPlayers = $('<h4>').addClass('numOfPlayers');
+    const $numOfPlayers = $('<h4>').addClass('is-size-4');
 
     $numOfPlayers.text(
       `${data.games[0].min_players} - ${data.games[0].max_players}`
     );
 
-    const $playtime = $('<h4>').addClass('playtime');
+    const $playtime = $('<h4>').addClass('is-size-4');
     $playtime.text(
       `${data.games[0].min_playtime} - ${data.games[0].max_playtime} mins`
     );

@@ -4,17 +4,9 @@
     <% include ./partials/head.ejs %>
   </head>
   <body>
-    <nav class="hero is-primary is-bold is-small has-background">
-      <div class="hero-body">
-        <div class="container">
-          <h1 class="title is-1">
-            <a href="/boardgames" class="mainNav">Game Den</a>
-          </h1>
-          <h3 class="subtitle">Your personal game hoard</h3>
-        </div>
-      </div>
-    </nav>
-    <section class="section">
+      <% include ./partials/hero.ejs %>
+                  
+        <section class="section card-container">
       <div class="container">
         <div class="tile is-ancestor">
           <div class="tile is-8 is-vertical">
@@ -23,7 +15,9 @@
             <div class="tile">
               <!--inside is where the top 3 go-->
               <div class="tile is-parent">
-                <div class="tile is-child box col1box1 has-text-centered">
+                <div
+                  class="tile is-child box col1box1 has-text-centered"
+                >
                   <!--Column 1A-->
                 </div>
               </div>
@@ -32,7 +26,7 @@
                 <!--Column 1B-->
                 <div class="tile is-child box col2box1">
                   <!--1Btop-->
-                  <h2 class="title gameName"><%= game.name %></h2>
+                  <h2 class="title gameName is-1 has-text-centered"><%= game.name %></h2>
                 </div>
                 <div class="tile is-child box col2box2">
                   <!--1Bbtm-->
@@ -48,60 +42,67 @@
             <div class="tile is-parent">
               <div class="tile is-child box widebox">
                 <!--bottom wide-->
-                <p class="title">Description:</p>
+                <p class="title is-family-code">Description:</p>
               </div>
             </div>
           </div>
 
-          <div class="tile is-child box">
+          <article class="tile is-child box">
             <!--column 2-->
-            <aside>
-              <h3 class="subtitle">OWN:</h3>
-              <% if (game.own === true) { %>
+
+            <h3 class="subtitle has-text-weight-bold ">
+              OWN: <% if (game.own === true) { %>
               <i class="fas fa-check-circle" style="color:green"></i>
               <% } else { %>
               <i class="fas fa-ban" style="color:red"></i>
               <% } %>
+            </h3>
 
-              <h3 class="subtitle">WISHLIST:</h3>
-              <% if (game.wishList === true) { %>
+            <h3 class="subtitle has-text-weight-bold ">
+              WISHLIST: <% if (game.wishList === true) { %>
               <i class="fas fa-heart" style="color:red"></i>
               <% } else { %>
               <i class="fas fa-ban" style="color:red"></i>
               <% } %>
+            </h3>
 
-              <h3 class="subtitle">
-                MY RATING: <%= game.myRating %><i
-                  class="fas fa-star"
-                  style="color:yellow"
-                ></i>
-              </h3>
+            <h3 class="subtitle has-text-weight-bold">
+              MY RATING: <%= game.myRating %><i
+                class="fas fa-star"
+                style="color:yellow"
+              ></i>
+            </h3>
 
-              <h3 class="subtitle">My Notes:</h3>
-              <p><%= game.gamePlayNotes %></p>
-              <a href="/boardgames/<%=game.id; %>/edit"
-                ><button>EDIT</button></a
-              >
-              <form
-                action="/boardgames/<%=game.id%>?_method=DELETE"
-                method="POST"
-              >
-                <input type="submit" value="DELETE GAME" />
-              </form>
-            </aside>
-          </div>
+            <h3 class="subtitle has-text-weight-bold">My Notes:</h3>
+            <p><%= game.gamePlayNotes %></p>
+          </br>
+            <div class="field is-grouped">
+              <div class="control">
+                <a href="/boardgames/<%=game.id; %>/edit" class="button is-link"
+                  >EDIT GAME</a
+                >
+              </div>
+              <div class="control">
+                <form
+                  action="/boardgames/<%=game.id%>?_method=DELETE"
+                  method="POST"
+                >
+                  <input
+                    type="submit"
+                    value="DELETE GAME"
+                    class="button is-danger"
+                  />
+                </form>
+              </div>
+            </div>
+          </article>
         </div>
       </div>
-    </section>
+        </section>
+    
 
-    <footer class="footer">
-      <div class="content has-text-centered">
-        <h6 class="design-by">
-          &copy; 2019 Corey Morrison || Powered by Board Game Atlas API
-        </h6>
-      </div>
-    </footer>
-
+    <% include ./partials/footer.ejs %>
+    
     <script
       src="https://code.jquery.com/jquery-3.4.1.min.js"
       integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="

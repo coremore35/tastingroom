@@ -1,43 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>New Boardgame</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css"
-    />
+    <% include ./partials/head.ejs %>
   </head>
   <body>
+    <% include ./partials/hero.ejs %>
     <h1>Add New Boardgame</h1>
 
     <a href="/boardgames"><button>Back</button></a>
 
-    <form action="/boardgames" method="POST">
-      <label for="name">Name: </label>
-      <input type="text" name="name" />
+    <section class="section">
+      <form action="/boardgames" method="POST">
+        <div class="field">
+          <label for="name" class="label is-medium">Game Title: </label>
+          <div class="control">
+            <input type="text" name="name" class="input" />
+          </div>
+        </div>
 
-      <label for="own">Own: </label>
-      <input type="checkbox" name="own" />
+        <div class="field">
+          <label for="own" class="label is-medium">Own: </label>
+          <div class="control">
+            <input type="checkbox" class="checkbox" name="own" />
+          </div>
+        </div>
 
-      <label for="wishList">Wish List: </label>
-      <input type="checkbox" name="wishList" />
+        <div class="field ">
+          <label for="wishList" class="label is-medium">Wish List: </label>
 
-      <label for="myRating">My Rating: </label>
-      <input
-        type="number"
-        name="myRating"
-        placeholder="1-10"
-        min="1"
-        max="10"
-      />
+          <div class="control">
+            <input type="checkbox" class="checkbox" name="wishList" />
+          </div>
+        </div>
 
-      <label for="gamePlayNotes">Game Play Notes: </label>
-      <textarea name="gamePlayNotes"></textarea>
+        <div class="field">
+          <label for="myRating" class="checkbox label is-medium"
+            >My Rating:
+          </label>
 
-      <input type="submit" name="submit" value="submit" />
-    </form>
+          <div class="control">
+            <input
+              type="number"
+              name="myRating"
+              min="1"
+              max="10"
+              class="input is-narrow"
+            />
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="gamePlayNotes" class="label number is-medium"
+            >Game Play Notes:
+          </label>
+          <div class="control">
+            <textarea
+              name="gamePlayNotes"
+              form="usrForm"
+              class="textarea"
+            ></textarea>
+          </div>
+        </div>
+
+        <input
+          type="submit"
+          name="submit"
+          value="submit"
+          class="button is-success"
+        />
+      </form>
+    </section>
+    <% include ./partials/footer.ejs %>
   </body>
 </html>
