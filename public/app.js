@@ -17,22 +17,18 @@ $(() => {
     const $numOfPlayers = $('<h4>').addClass('numOfPlayers');
 
     $numOfPlayers.text(
-      `# of Players: ${data.games[0].min_players} - ${
-        data.games[0].max_players
-      }`
+      `${data.games[0].min_players} - ${data.games[0].max_players}`
     );
 
     const $playtime = $('<h4>').addClass('playtime');
     $playtime.text(
-      `Playtime: ${data.games[0].min_playtime} - ${
-        data.games[0].max_playtime
-      } mins`
+      `${data.games[0].min_playtime} - ${data.games[0].max_playtime} mins`
     );
 
-    $('.gameStats').append($addImg);
-    $('.gameStats').append($numOfPlayers);
-    $('.gameStats').append($playtime);
-    $('.gameStats').append($description);
+    $('.col1box1').append($addImg);
+    $('.col2box2').append($numOfPlayers);
+    $('.col2box3').append($playtime);
+    $('.widebox').append($description);
   };
 
   $.ajax({

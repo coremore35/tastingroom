@@ -9,35 +9,40 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css"
     />
+    <link rel="stylesheet" href="main.css" />
     <script
       defer
       src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"
     ></script>
   </head>
   <body>
-    <nav class="hero is-primary">
+    <nav class="hero is-primary is-bold is-small has-background">
+      <img
+        class="herobackground is-transparent"
+        src="https://boardgamesland.com/wp-content/uploads/2019/02/best-war-games-board-games-root-components.png"
+      />
       <div class="hero-body">
         <div class="container">
           <h1 class="title is-1">Game Den</h1>
-          <form>
-            <input
-              type="text"
-              class="gameSearch"
-              placeholder="Search Game by Title"
-            />
-            <input type="submit" name="Submit" class="submit-btn" />
-          </form>
+          <h3 class="subtitle">Your personal game hoard</h3>
         </div>
       </div>
     </nav>
 
-    <a href="/boardgames/new"><button>Add New Game</button></a>
+    <a href="/boardgames/new" class="button is-info is-fullwidth"
+      >Add New Game</a
+    >
 
-    <div class="games">
+    <div class="columns is-multiline ">
       <% games.forEach( function (game) { %>
-      <div class="card">
-        <h5><a href="/boardgames/<%=game.id%>"><%= game.name %></a></h5>
-        <img />
+      <div class="column is-one-third">
+        <div class="card">
+          <div class="card-content">
+            <h5 class="has-text-centered is-size-3">
+              <a href="/boardgames/<%=game.id%>"><%= game.name %></a>
+            </h5>
+          </div>
+        </div>
       </div>
       <% }); %>
     </div>
