@@ -59,20 +59,20 @@ body {
 }
 
 a {
-  color: white;
+  color: inherit;
 }
 a:link {
-  color: white;
+  color: inherit;
 }
 
 a:hover {
-  color: white;
+  color: inherit;
 }
 
 a:visited {
   color: inherit;
 }
 
-a.mainNav {
+.mainNav {
   color: white !important;
 }
