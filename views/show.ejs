@@ -9,6 +9,12 @@
         <section class="section card-container">
       <div class="container">
         <div class="tile is-ancestor">
+          <div class="tile">
+              <div class="tile is-parent">
+                  <div class="tile is-child">
+                    </div>
+                  </div>
+          </div>
           <div class="tile is-8 is-vertical">
             <!--column 1-->
 
@@ -24,30 +30,32 @@
 
               <div class="tile is-vertical is-parent">
                 <!--Column 1B-->
-                <div class="tile is-child box col2box1">
+                <div class="tile is-child box col2box1 notification is-danger">
                   <!--1Btop-->
-                  <h2 class="title gameName is-1 has-text-centered"><%= game.name %></h2>
+                  <h3 class="subtitle">Game Title:</h3>
+                  <h2 class="title gameName is-size-2 has-text-centered is-vcentered"><%= game.name %></h2>
                 </div>
-                <div class="tile is-child box col2box2">
+                <div class="tile is-child box col2box2 notification is-info">
                   <!--1Bbtm-->
-                  <p class="title"># of Players:</p>
+                  <h3 class="subtitle"># of Players:</h3>
                 </div>
-                <div class="tile is-child box col2box3">
+                <div class="tile is-child box col2box3 notification is-warning">
                   <!--1Bbtm-->
-                  <p class="title">Play time:</p>
+                  <h3 class="subtitle"># of Players:</h3>
                 </div>
               </div>
             </div>
 
             <div class="tile is-parent">
-              <div class="tile is-child box widebox">
+              <div class="tile is-child box widebox notification is-dark">
                 <!--bottom wide-->
-                <p class="title is-family-code">Description:</p>
+                <p class="title">Description:</p>
               </div>
             </div>
           </div>
 
-          <article class="tile is-child box">
+          <div class="tile is-parent">
+          <div class="tile is-child box">
             <!--column 2-->
 
             <h3 class="subtitle has-text-weight-bold ">
@@ -67,7 +75,7 @@
             </h3>
 
             <h3 class="subtitle has-text-weight-bold">
-              MY RATING: <%= game.myRating %><i
+              MY RATING: <%= game.myRating %> <i
                 class="fas fa-star"
                 style="color:yellow"
               ></i>
@@ -95,8 +103,18 @@
                 </form>
               </div>
             </div>
-          </article>
+          
+          
+          </div>
         </div>
+          <div class="tile">
+              <div class="tile is-parent">
+                  <div class="tile is-child">
+                    </div>
+                  </div>
+          </div>
+        </div>
+        
       </div>
         </section>
     
