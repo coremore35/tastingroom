@@ -18,8 +18,9 @@ The purpose of this app project is construct meaning of my learning of different
 
 ## Screenshots
 
-![Example layout](/images/screenshot1.png)
-![Example keyword entry](/images/screenshot2.png)
+![Example layout](/public/images/homepage.png)
+![Example game collection](/public/images/database.png)
+![Example game info page](/public/images/gameshow.png)
 
 ## Technologies
 
@@ -30,9 +31,12 @@ The purpose of this app project is construct meaning of my learning of different
 - Express
 - MongoDB
 - Mongoose
+- BULMA
 - Board Game Atlas (https://www.boardgameatlas.com/api/docs)
 
 ## Setup
+
+https://game-den.herokuapp.com/boardgames
 
 ## Code Examples
 
@@ -94,13 +98,14 @@ const handleData = data => {
 
 List of features ready and TODOs for future development
 
-- Utilizes two APIs
+- Utilizes an API
 - Responsive web-design
-- Takes user input to display images/quotes
+- Takes user input to display data/images
+- CRUD functionality
 
 To-do list:
 
-- I would like to clean up the functions so that they are not so lengthy. This will also help to more easily make needed changes in the future.
+- I would like to add some search functionality to make it easier once the user has added many games, they can find games within a set parameter(e.g. accommodates 4 players, or playtime is 60 mins). I would also like to add authorization to the app so that multiple people can use this and it be personalized to the board games they own/played.
 
 ## Status
 
