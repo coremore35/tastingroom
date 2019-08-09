@@ -4,7 +4,8 @@
     <% include ./partials/head.ejs %>
   </head>
   <body>
-    <a href="/boardgames"><button>Back</button></a>
+    <% include ./partials/hero.ejs %>
+    <a href="/boardgames/<%=game.id%>"><button>Back</button></a>
     <div class="section">
       <div class="contatiner">
         <form
